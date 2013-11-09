@@ -1,0 +1,92 @@
+<!doctype html>
+<html data-ng-app="myApp" data-ng-csp="">
+  <head>
+    <meta charset="UTF-8">
+    <title>Screen Markup Statistics</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="margin-bottom: 50px;">
+                    Screen Statistics for <span id="pageTitle"></span>
+                </h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Property
+                            </th>
+                            <th>
+                                Value
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="propertyTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <h3 class="subHeader">
+                        Elements Missing an ID
+                    </h3>
+                    <p class="lead" id="subtitle">
+            
+                    </p>
+                </div>
+                <div id="missingIDContainer">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <h3 class="subHeader">
+                        Elements Missing a Name
+                    </h3>
+                    <p class="lead" id="subtitle2">
+            
+                    </p>
+                </div>
+                <div id="missingNameContainer">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <h3 class="subHeader">
+                        Elements with ID missing a label
+                    </h3>
+                    <p class="lead" id="subtitle5">
+            
+                    </p>
+                </div>
+                <div id="withIDMissingLabelContainer">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <h3 class="subHeader">
+                        Radios without data-validationLabel
+                    </h3>
+                    <p class="lead" id="subtitle5">
+            
+                    </p>
+                </div>
+                <div id="radiosWithoutValidationLabelContainer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/vendor/jQuery-2.min.js"></script>
+    <script src="./js/vendor/jquery.dataTables.js"></script>
+    <script src="./js/screenStatistics.js"></script>
+  </body>
+</html>
