@@ -97,7 +97,7 @@ chrome.browserAction.onClicked.addListener(function () {
             url += 'numTables=' + numTables;
         }
 
-        if (numTables > 0) {
+        if (numInputs > 0) {
             url = addURLPrefix(url);
             url += 'numInputs=' + numInputs;
         }
