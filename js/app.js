@@ -63,8 +63,8 @@ chrome.browserAction.onClicked.addListener(function () {
         });
 
         $(tables).each(function () {
-            var headers = $(this).find('th');
-            if (headers.length === 0) {
+            var firstCellIsHeader = $(this).find('tr').first().children().first().is("th");
+            if (firstCellIsHeader !== true) {
                 numHeadlessTables++;
             }
         });
