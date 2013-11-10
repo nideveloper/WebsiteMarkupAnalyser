@@ -14,7 +14,7 @@ chrome.browserAction.onClicked.addListener(function () {
         code: "document.getElementsByTagName('html')[0].innerHTML;"
     },
     function (ps1) {
-        var html = $.parseHTML('<html>' + ps1.toString() + '</html>');
+        var html = ps1[0];
         var inputs = $(html).find('input, select, textarea');
         var tables = $(html).find('table');
         var title = $(html).filter('title').text();
@@ -23,9 +23,13 @@ chrome.browserAction.onClicked.addListener(function () {
         var inputsWithoutLabel = [];
         var radiosWithoutValidationLabel = [];
         var numInlineStyles = 0;
+        var numHeadlessTables = 0;
         var numTables = tables.length;
         var numInputs = inputs.length;
         var url = '';
+        var scripts = $(html).filter('script');
+        var totalNumScripts = scripts.length;
+        var totalNumInlineScripts = 0;
         var safeObject;
         var safeNameObject;
         var safeLabelObject;
@@ -56,9 +60,22 @@ chrome.browserAction.onClicked.addListener(function () {
             }
         });
 
+        $(tables).each(function () {
+            var headers = $(this).find('th');
+            if (headers.length === 0) {
+                numHeadlessTables++;
+            }
+        });
+
         $(html).find('*').each(function () {
             if ($(this).attr('style') != undefined) {
                 numInlineStyles++;
+            }
+        });
+
+        scripts.each(function () {
+            if ($(this).attr('src') == undefined) {
+                totalNumInlineScripts++;
             }
         });
 
@@ -67,7 +84,7 @@ chrome.browserAction.onClicked.addListener(function () {
         safeLabelObject = encodeURI(inputsWithoutLabel);
         safeRadioObject = encodeURI(radiosWithoutValidationLabel);
 
-        if (safeObject!='') {
+        if (safeObject != '') {
             url = addURLPrefix(url);
             url += 'elementNames=' + safeObject;
         }
@@ -102,7 +119,22 @@ chrome.browserAction.onClicked.addListener(function () {
             url += 'numInputs=' + numInputs;
         }
 
-        if(title != ''){
+        if (numHeadlessTables > 0) {
+            url = addURLPrefix(url);
+            url += 'numHeadlessTables=' + numHeadlessTables;
+        }
+
+        if (totalNumScripts > 0) {
+            url = addURLPrefix(url);
+            url += 'totalNumScripts=' + totalNumScripts;
+        }
+
+        if (totalNumInlineScripts > 0) {
+            url = addURLPrefix(url);
+            url += 'totalNumInlineScripts=' + totalNumInlineScripts;
+        }
+
+        if (title != '') {
             url = addURLPrefix(url);
             url += 'title=' + title;
         }

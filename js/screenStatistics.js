@@ -77,10 +77,26 @@ jQuery(document).ready(function () {
         $('#propertyTableBody').append('<tr><td>Number of Tables on the page</td><td>' + numTables + '</td></tr>');
     }
 
+    var numHeadlessTables = getURLParameter('numHeadlessTables');
+    if ('null' != numHeadlessTables) {
+        $('#propertyTableBody').append('<tr><td>Number of Tables without TH tags. These are probably invalid or are used for layout</td><td>' + numHeadlessTables + '</td></tr>');
+    }
+
     var numInputs = getURLParameter('numInputs');
     if ('null' != numInputs) {
         $('#propertyTableBody').append('<tr><td>Number of Inputs (Input, Select, Textarea) on the page</td><td>' + numInputs + '</td></tr>');
     }
+
+    var totalNumScripts = getURLParameter('totalNumScripts');
+    if ('null' != numInputs) {
+        $('#propertyTableBody').append('<tr><td>Number of Scripts</td><td>' + totalNumScripts + '</td></tr>');
+    }
+
+    var totalNumInlineScripts = getURLParameter('totalNumInlineScripts');
+    if ('null' != numInputs) {
+        $('#propertyTableBody').append('<tr><td>Number of Inline Scripts</td><td>' + totalNumInlineScripts + '</td></tr>');
+    }
+
     var pageTitle = getURLParameter('title');
     if ('null' != pageTitle) {
         $('#pageTitle').append(pageTitle);
