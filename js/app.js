@@ -18,6 +18,9 @@ chrome.browserAction.onClicked.addListener(function () {
         var inputs = $(html).find('input, select, textarea');
         var tables = $(html).find('table');
         var title = $(html).filter('title').text();
+        var scripts = $(html).filter('script');
+        var styles = $(html).filter('style');
+
         var inputsWithoutID = [];
         var inputsWithoutName = [];
         var inputsWithoutLabel = [];
@@ -27,7 +30,6 @@ chrome.browserAction.onClicked.addListener(function () {
         var numTables = tables.length;
         var numInputs = inputs.length;
         var url = '';
-        var scripts = $(html).filter('script');
         var totalNumScripts = scripts.length;
         var totalNumInlineScripts = 0;
         var safeObject;

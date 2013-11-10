@@ -72,9 +72,14 @@ jQuery(document).ready(function () {
         $('#propertyTableBody').append('<tr><td>Number of Inline Styles</td><td>' + numInlineStyles + '</td></tr>');
     }
 
+    var numInputs = getURLParameter('numInputs');
+    if ('null' != numInputs) {
+        $('#propertyTableBody').append('<tr><td>Number of Inputs (Input, Select, Textarea) on the page</td><td>' + numInputs + '</td></tr>');
+    }
+
     var numTables = getURLParameter('numTables');
     if ('null' != numTables) {
-        $('#propertyTableBody').append('<tr><td>Number of Tables on the page</td><td>' + numTables + '</td></tr>');
+        $('#propertyTableBody').append('<tr><td>Total Number of Tables on the page</td><td>' + numTables + '</td></tr>');
     }
 
     var numHeadlessTables = getURLParameter('numHeadlessTables');
@@ -82,14 +87,9 @@ jQuery(document).ready(function () {
         $('#propertyTableBody').append('<tr><td>Number of Tables without TH tags. These are probably invalid or are used for layout</td><td>' + numHeadlessTables + '</td></tr>');
     }
 
-    var numInputs = getURLParameter('numInputs');
-    if ('null' != numInputs) {
-        $('#propertyTableBody').append('<tr><td>Number of Inputs (Input, Select, Textarea) on the page</td><td>' + numInputs + '</td></tr>');
-    }
-
     var totalNumScripts = getURLParameter('totalNumScripts');
     if ('null' != numInputs) {
-        $('#propertyTableBody').append('<tr><td>Number of Scripts</td><td>' + totalNumScripts + '</td></tr>');
+        $('#propertyTableBody').append('<tr><td>Total Number of Scripts</td><td>' + totalNumScripts + '</td></tr>');
     }
 
     var totalNumInlineScripts = getURLParameter('totalNumInlineScripts');
