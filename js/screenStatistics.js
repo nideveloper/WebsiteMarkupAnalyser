@@ -65,8 +65,6 @@ jQuery(document).ready(function () {
         $('#radiosWithoutValidationLabelContainer').html(convertedString3);
     }
 
-
-
     var numInlineStyles = getURLParameter('numInlineStyles');
     if ('null' != numInlineStyles) {
         $('#propertyTableBody').append('<tr><td>Number of Inline Styles</td><td>' + numInlineStyles + '</td></tr>');
