@@ -8,6 +8,10 @@ function addURLPrefix(url){
     return url;
 }
 
+function findAll(placeToSearch, jQueryExpression){
+    return $(placeToSearch).filter(jQueryExpression).add($(placeToSearch).find(jQueryExpression))
+}
+
 chrome.browserAction.onClicked.addListener(function () {
     chrome.tabs.executeScript(
     {
@@ -15,11 +19,11 @@ chrome.browserAction.onClicked.addListener(function () {
     },
     function (ps1) {
         window.html = ps1[0];
-        var inputs = $(html).find('input, select, textarea');
-        var tables = $(html).find('table');
-        var title = $(html).filter('title').text();
-        var scripts = $(html).filter('script');
-        var styles = $(html).filter('style');
+        var inputs = findAll(window.html,'input, select, textarea');
+        var tables = findAll(window.html,'table');
+        var title = $(window.html).filter('title').text();
+        var scripts = findAll(window.html,'script');
+        var styles = findAll(window.html,'style');
 
         var inputsWithoutID = [];
         var inputsWithoutName = [];
@@ -44,7 +48,9 @@ chrome.browserAction.onClicked.addListener(function () {
                 }
                 else {
                     if ($(this).attr('type') !== 'hidden') {
-                        var label = $(window.html).find('label[for="' + $(this).attr('id') + '"]');
+                        
+                        var jQueryExpression = 'label[for="' + $(this).attr('id') + '"]';
+                        var label = findAll(window.html,jQueryExpression);
                         if (label.length == 0) {
                             inputsWithoutLabel.push($(this).attr('id') + ' - ' + $(this).get(0).tagName + ' - ' + $(this).attr('type'));
                         }
