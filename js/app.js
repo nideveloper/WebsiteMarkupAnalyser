@@ -14,7 +14,7 @@ chrome.browserAction.onClicked.addListener(function () {
         code: "document.getElementsByTagName('html')[0].innerHTML;"
     },
     function (ps1) {
-        var html = ps1[0];
+        window.html = ps1[0];
         var inputs = $(html).find('input, select, textarea');
         var tables = $(html).find('table');
         var title = $(html).filter('title').text();
@@ -44,7 +44,7 @@ chrome.browserAction.onClicked.addListener(function () {
                 }
                 else {
                     if ($(this).attr('type') !== 'hidden') {
-                        var label = $('label[for="' + $(this).attr('id') + '"]');
+                        var label = $(window.html).find('label[for="' + $(this).attr('id') + '"]');
                         if (label.length == 0) {
                             inputsWithoutLabel.push($(this).attr('id') + ' - ' + $(this).get(0).tagName + ' - ' + $(this).attr('type'));
                         }
