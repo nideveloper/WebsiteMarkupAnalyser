@@ -22,7 +22,10 @@ body {
 
     /* W3C Markup, IE10 Release Preview */ 
     background-image: linear-gradient(to bottom, #DDDDDD 0%, #F5F5F5 100%);
-    
+}
+
+.bold{
+    font-weight: bold;
 }
 
 .container{
@@ -64,6 +67,11 @@ table.table thead th{
     color:  #fff;
     padding-top:  8px;
     padding-bottom:  8px;
+}
+
+table td{
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .dataTables_wrapper{

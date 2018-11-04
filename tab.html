@@ -13,80 +13,130 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 style="margin-bottom: 50px;">
-                    Screen Statistics for <span id="pageTitle"></span>
+                    Screen Analysis for <span id="pageTitle"></span>
                 </h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>
-                                Property
-                            </th>
-                            <th>
-                                Value
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="propertyTableBody">
-                    </tbody>
-                </table>
             </div>
         </div>
-        <hr />
-        <div class="row">
-            <div class="col-md-6">
-                <div>
-                    <h3 class="subHeader">
-                        Elements Missing an ID
-                    </h3>
-                    <p class="lead" id="subtitle">
-            
-                    </p>
-                </div>
-                <div id="missingIDContainer">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div>
-                    <h3 class="subHeader">
-                        Elements Missing a Name
-                    </h3>
-                    <p class="lead" id="subtitle2">
-            
-                    </p>
-                </div>
-                <div id="missingNameContainer">
-                </div>
+        <div class="row" style="margin-bottom: 30px;">
+            <div class="col-md-12">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="active"><a href="#statistics-container" role="tab" data-toggle="tab">UI Standards</a></li>
+                  <li><a href="#reference-data-container" role="tab" data-toggle="tab">Reference Data</a></li>
+                </ul>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div>
-                    <h3 class="subHeader">
-                        Elements with ID missing a label
-                    </h3>
-                    <p class="lead" id="subtitle5">
-            
-                    </p>
+        <div class="tab-content">
+            <div class="tab-pane active" id="statistics-container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>
+                            General Screen Statistics
+                        </h4>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Property
+                                    </th>
+                                    <th>
+                                        Value
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="propertyTableBody">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div id="withIDMissingLabelContainer">
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <h3 class="subHeader">
+                                Visible Elements Missing an ID
+                            </h3>
+                            <p class="lead" id="subtitle">
+                    
+                            </p>
+                        </div>
+                        <div id="missingIDContainer">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <h3 class="subHeader">
+                                Elements Missing a Name
+                            </h3>
+                            <p class="lead" id="subtitle2">
+                    
+                            </p>
+                        </div>
+                        <div id="missingNameContainer">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <h3 class="subHeader">
+                                Elements with ID missing a label
+                            </h3>
+                            <p class="lead" id="subtitle5">
+                    
+                            </p>
+                        </div>
+                        <div id="withIDMissingLabelContainer">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <h3 class="subHeader">
+                                Radios without data-validationLabel
+                            </h3>
+                            <p class="lead" id="subtitle5">
+                    
+                            </p>
+                        </div>
+                        <div id="radiosWithoutValidationLabelContainer">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div>
-                    <h3 class="subHeader">
-                        Radios without data-validationLabel
-                    </h3>
-                    <p class="lead" id="subtitle5">
-            
-                    </p>
-                </div>
-                <div id="radiosWithoutValidationLabelContainer">
+            <div class="tab-pane" id="reference-data-container">
+                <h3>Active Reference Data</h3>
+                <div id="ETMDataContainer">
+                    <table id="ETMTable" class="dataTable table table-striped show25">
+                        <colgroup>
+                            <col width="200" >
+                            <col width="210" >
+                            <col width="100" >
+                            <col width="100" >
+                            <col width="100" >
+                            <col width="150" >
+                            <col width="*" > 
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Field Name</th>
+                                <th>Edit Type</th>
+                                <th>Val1</th>
+                                <th>Val2</th>
+                                <th>Val3</th>
+                                <th>Display Name</th>
+                                <th>Validation Message</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ETMTableBody">
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
     <script src="./js/vendor/jQuery-2.min.js"></script>
     <script src="./js/vendor/jquery.dataTables.js"></script>
+    <script src="./js/vendor/bootstrap.min.js"></script>
     <script src="./js/screenStatistics.js"></script>
   </body>
 </html>
